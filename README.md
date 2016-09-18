@@ -1,6 +1,6 @@
 # Twitter-Analysis
 
-Demo:http://purduetweets.azurewebsites.net
+Demo: http://purduetweets.azurewebsites.net
 
 This is a dashboard like Twitter Analysis platform built with JavaScript and PHP.
 
