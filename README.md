@@ -1,5 +1,7 @@
 # Twitter-Analysis
 
+Demo:http://purduetweets.azurewebsites.net
+
 This is a dashboard like Twitter Analysis platform built with JavaScript and PHP.
 
 So far, the demo page only provides the analysis of west lafayette area, home of Purdue University. 
