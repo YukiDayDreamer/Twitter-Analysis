@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Purdue Tweets 2014</title>
+        <!-- Map CSS -->
+        <link rel="stylesheet" type="text/css" href="css/map.css">
+        <!-- Bootstrap Kernel CSS -->
+        <link href="http://apps.bdimg.com/libs/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Esri API -->
+        <link rel="stylesheet" href="https://js.arcgis.com/3.17/esri/css/esri.css">
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span id="year" class="sr-only">2014</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#"><strong>Twitter @ Purdue 2014</strong></a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li role="presentation" class="dropdown">
+                            <a id="user-dropdown" class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                                User <span class="caret"></span>
+                            </a>
+                            <ul id="users" class="dropdown-menu">
+                            </ul>
+                        </li>
+                        <li role="presentation" class="dropdown">
+                            <a id="month-dropdown" class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                                Month <span class="caret"></span>
+                            </a>
+                            <ul id="months" class="dropdown-menu">
+                            </ul>
+                        </li>
+                        <li role="presentation" class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                                Marker <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li role="presentation"><a href="#" onclick="dropSample()">Drop Samples</a></li>
+                                <li role="presentation"><a href="#" onclick="showAll()">Show All</a></li>
+                                <li role="presentation"><a href="#" onclick="clearMarkers()">Clear</a></li>
+                            </ul>
+                        </li>
+                        <li role="presentation" class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                                Heat Map <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li role="presentation"><a href="#" onclick="createHeatmap()">Create</a></li>
+                                <li role="presentation"><a href="#" onclick="toggleHeatmap()">Toggle</a></li>
+                                <li role="presentation"><a href="#" onclick="changeRadius()">Change radius</a></li>
+                                <li role="presentation"><a href="#" onclick="changeGradient()">Change gradient</a></li>
+                                <li role="presentation"><a href="#" onclick="changeOpacity()">Change opacity</a></li>
+                                <li role="presentation"><a href="#" onclick="clearHeatmap()">Clear</a></li>
+                            </ul>
+                        </li>
+                        <li role="presentation" class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                                Spatial Temporal Pattern <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li role="presentation"><a href="#" onclick="getST_byHour()">Show Pattern</a></li>
+                                <li role="presentation"><a href="#" onclick="clearAll()">Clear</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="EventDetection.html" target="_blank">
+                                Event Detection
+                            </a>
+                        </li>
+                        <!--                        <li><a href="Individual_2015.html">
+                                                        To 2015<span class="sr-only">(another year)</span>
+                                                    </a>
+                                                </li>-->
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="row">
+                    <div class="col-sm-2">
+                        <div id="description">
+                            <p><strong>Welcome to Twitter @ Purdue!</strong> 
+                                This website is designed to demonstrate the spatial and temporal pattern 
+                                of tweet around Purdue Campus through 2014.
+                            </p>
+                            <p>To use this website, you should first pick up <strong>User</strong> 
+                                (most active users in the year) or <strong>Month</strong> 
+                                data as data source. 
+                            </p>
+                            <p>
+                                Once you select data, you can either select <strong>Marker</strong>, 
+                                <strong>Heatmap</strong>, <strong>Spatial Temporal Pattern</strong> or 
+                                <strong>Commute Path</strong> 
+                                to explore the functionalities.
+                            </p>
+                            <p>
+                                <strong>Spatial Temporal Pattern</strong> provides 
+                                the probability of each clusters of specific time period, 
+                                which consider both spatial and temporal probability, 
+                                and other details of the cluster. 
+                                Thanks to Qunying and David, I benefit from
+                                <a href=
+                                   "http://www.tandfonline.com/doi/full/10.1080/00045608.2015.1081120#.VjuF-YT5_rw" 
+                                   target="_blank">
+                                    their work</a> a lot.
+                            </p>
+                            <p>
+                                Please enjoy playing with the website! 
+                                If you have any questions or suggestions, please feel free to
+                                <a href="mailto:huang711@purdue.edu"> contact me</a>.
+                            </p>
+                            <p>Yuki Huang</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div id="map"></div>
+                        <div id="legend"></div>
+                        <div id="switch">
+                            <button id="leftarrow" type="button" class="btn btn-default" aria-label="Left Align"
+                                    onclick=display_prev()>
+                                <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+                            </button>
+                            <strong><a id="time_stamp" href="#"></a></strong>
+                            <button id="rightarrow" type="button" class="btn btn-default" aria-label="Right Align"
+                                    onclick=display_next()>
+                                <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+                            </button>
+                            <p id="hint"></p>
+                        </div>
+                        <div id="scalebar" class="scalebar"></div>
+                        <div id="dummymap" class="dummymap"></div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div><p id="infoBoard"></p></div>
+                        <div id="chartContainer"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scripts -->
+        <!-- jQuery -->
+        <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+        <!-- Bootstrap Kernel JavaScript -->
+        <script src="http://apps.bdimg.com/libs/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+        <!-- Esri JS -->
+        <script src="http://js.arcgis.com/3.17/"></script>
+        <script>var dojoConfig = {parseOnLoad: true};</script>
+        <!-- Google Maps API -->
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAO9lTKIiNT6vVJiAnNZ-JiGyMDgbPeZfA&signed_in=false&libraries=geometry,visualization"></script>
+        <!-- DBSCAN Lib -->
+        <script src="js/clustering/dbscan.js"></script>
+        <!-- Canvas JS lib -->
+        <script src="//canvasjs.com/assets/script/canvasjs.min.js"></script>
+        <!-- Word Frequency -->
+        <script src="js/utilities/word-freq.js"></script>
+        <!-- Sort Json -->
+        <script src="js/utilities/sort-json.js"></script>
+        <script>
+            var wf = require('word-freq');  // init word frequency
+        </script>
+        <!-- Main JS for individual user -->
+        <script src="js/individual.js"></script>
+        <script>
+            $(document).ready(function () {
+                /* dojo related */
+                dojo.require("dojo.parser");
+                dojo.require("esri.dijit.Scalebar");
+                dojo.require("esri.map");
+                dojo.require("esri.geometry.Point");
+
+                initMap();  // init map
+                dojo.ready(initDummy);  // init dummy map
+
+                year = document.getElementById("year").innerHTML;
+
+                var user_url = "php/west_lafayette/get_User_ID.php";
+                user_loc_url = 'php/west_lafayette/get_User_Loc.php';
+                // Append User's ID information to the webpage
+                $.post(user_url, {year: year}, function (data) {
+                    var user_details = eval(data);
+                    for (var i = 0; i < user_details.length; i++) {
+                        var temp_id = user_details[i].user_id;
+                        var temp_num = user_details[i].num;
+                        // Construct the elements for html
+                        var ul = document.getElementById("users");
+                        var li = document.createElement("li");
+                        var a = document.createElement("a");
+                        a.appendChild(document.createTextNode(temp_id));
+                        a.setAttribute("id", temp_id);
+                        a.setAttribute("num", temp_num);
+                        a.setAttribute("href", "#");
+                        a.addEventListener("click", getUserID);
+                        a.addEventListener("click", fetchUser);
+                        li.appendChild(a);
+                        ul.appendChild(li);
+                    }
+                });
+
+                var month_url = "php/west_lafayette/get_Month_ID.php";
+                month_loc_url = "php/west_lafayette/get_Month_Loc.php";
+                $.post(month_url, {year: year}, function (data) {
+                    var month_details = eval(data);
+                    for (var i = 0; i < month_details.length; i++) {
+                        var temp_id = month_details[i].month;
+                        var temp_num = month_details[i].num;
+                        // Construct the elements for html
+                        var ul = document.getElementById("months");
+                        var li = document.createElement("li");
+                        var a = document.createElement("a");
+                        a.appendChild(document.createTextNode(temp_id));
+                        a.setAttribute("id", temp_id);
+                        a.setAttribute("num", temp_num);
+                        a.setAttribute("href", "#");
+                        a.addEventListener("click", getMonthID);
+                        a.addEventListener("click", fetchMonth);
+                        li.appendChild(a);
+                        ul.appendChild(li);
+                    }
+                });
+            });
+        </script>
+
+    </body>
+</html>
