@@ -92,6 +92,6 @@ LDA topics and structure of Tweets
 
 Acknowledgement: Thanks [CanvasJS](http://canvasjs.com/) to provide chart API.
 
-Enjoy! :cheer:
+Enjoy! :boom:
 
 PS: Fork and Star are reallllllllllly welcome ~~~
