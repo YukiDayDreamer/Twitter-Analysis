@@ -75,17 +75,17 @@ Dynamic Map of sptial pattern in different periods (It is not playable in GitHub
 
 Word frequncy in descending order
 
-![Word Freq][https://github.com/YukiDayDreamer/Twitter-Analysis/blob/master/README/event_detection/word%20frequency.png]
+![Word Freq](https://github.com/YukiDayDreamer/Twitter-Analysis/blob/master/README/event_detection/word%20frequency.png)
 
 Sample original texts
 
-![Sample Texts][https://github.com/YukiDayDreamer/Twitter-Analysis/blob/master/README/event_detection/sampel%20text.png]
+![Sample Texts](https://github.com/YukiDayDreamer/Twitter-Analysis/blob/master/README/event_detection/sampel%20text.png)
 
 LDA topics and structure of Tweets
 
-![LDA Topics][https://github.com/YukiDayDreamer/Twitter-Analysis/blob/master/README/event_detection/LDA%20Topics.png]
+![LDA Topics](https://github.com/YukiDayDreamer/Twitter-Analysis/blob/master/README/event_detection/LDA%20Topics.png)
 
-![LDA Sentences][https://github.com/YukiDayDreamer/Twitter-Analysis/blob/master/README/event_detection/LDA%20Sentences.png]
+![LDA Sentences](https://github.com/YukiDayDreamer/Twitter-Analysis/blob/master/README/event_detection/LDA%20Sentences.png)
 
 
 Acknowledgement: Thanks [CanvasJS](http://canvasjs.com/) to provide chart API.
