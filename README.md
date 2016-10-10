@@ -41,7 +41,7 @@ Frequency Bar Chart
 
 This one tries to detect events in the campus. The idea for event detection is based on this definition of event:
 
-**Some people** around a **place** in specific **period** talking about something realted to **a topic**
+**Some people** around a **place** in specific **period** talking about something realted to **a topic (or topics)**
 
 Dashboard
 
@@ -51,7 +51,7 @@ Dashboard
 
 1. Groud tweets by day, generate line chart about number of tweets and users monthly
 
-2. Different from DBSCAN for individual pattern, I apply [ST-DBSCAN](http://www.sciencedirect.com/science/article/pii/S0169023X06000218) to do cluster the tweets every day. Then we could know its sptial and temporal pattern.
+2. Different from DBSCAN for individual pattern, I apply [ST-DBSCAN](http://www.sciencedirect.com/science/article/pii/S0169023X06000218) to do cluster the tweets every day. Then we could know its spatial and temporal pattern.
 
 3. Count word frequency. Apply [LDA](https://en.wikipedia.org/wiki/Latent_Dirichlet_allocation) to do find out potential topics in the cluster and analyze the structure of every tweets. Although some clusters only contain rambling words (even after using a list of stop-words as a filter), some important events, like Gunshot at Campus (1.21.2104), Super Bowl (2.2.2014) and Graduation Ceremony (5.16.2014 ~ 5.18.2014), are really significant in the textual information. And it is also able to detect unkonwn events.
 
@@ -63,7 +63,7 @@ Pick a cluster
 
 ![Main Map](https://github.com/YukiDayDreamer/Twitter-Analysis/blob/master/README/event_detection/main%20map.png)
 
-Its spatial pattern in heatmap
+Its spatial pattern showed in heatmap
 
 ![Heat Map](https://github.com/YukiDayDreamer/Twitter-Analysis/blob/master/README/event_detection/heatmap.png)
 
