@@ -1,6 +1,8 @@
 # Twitter-Analysis
 
-[Demo Websites](http://purduetweets.azurewebsites.net)
+Update 2018.06.09: Demo website is not avaliable because Microsoft Azure does not provide free MySQL Database anymore :disappointed:~~(http://purduetweets.azurewebsites.net)~~
+
+----------
 
 I try to do some cool stuffs :smiling_imp: with Twitter data, and this is a dashboard like Twitter Analysis platform built with JavaScript and PHP, and it is sourced by Twitter data in West Lafayette, home of Purdue University, between 2014 and 2015.
 
